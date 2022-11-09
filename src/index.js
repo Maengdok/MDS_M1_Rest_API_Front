@@ -13,7 +13,7 @@ import {Navbar} from "./Components/Navbar";
 import {Error} from "./Pages/Error";
 import {LogOut} from "./Pages/LogOut";
 import SignIn from "./Pages/SignIn";
-import Posts from "./Pages/Posts";
+import Post from "./Pages/Post";
 import LogIn from "./Pages/LogIn";
 import {Footer} from "./Components/Footer";
 
@@ -42,8 +42,8 @@ const router = createBrowserRouter([
                         element: <SignIn />,
                     },
                     {
-                        path: "/posts",
-                        element: <Posts />,
+                        path: "/post",
+                        element: <Post />,
                     },
                 ]
             },

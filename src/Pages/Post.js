@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-export default class Posts extends Component {
+export default class Post extends Component {
     constructor(props) {
         super(props);
 
@@ -24,7 +24,7 @@ export default class Posts extends Component {
     render = () => {
         return (
             <>
-                <h2>LogIn Page</h2>
+                <h2>Post Page</h2>
                 <form>
                     <label onSubmit={this.handleSubmit}>
                         Title:

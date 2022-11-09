@@ -1,5 +1,7 @@
+import {redirect} from "react-router-dom";
+
 export const LogOut = () => {
-    return (
-        <h2>LogOut Page</h2>
-    );
+    window.sessionStorage.clear();
+
+    redirect('/');
 }

@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import axios from "axios";
 
 export default class SignIn extends Component {
     constructor(props) {
@@ -8,6 +9,7 @@ export default class SignIn extends Component {
             email: '',
             password: '',
             confirmPassword: '',
+            message: '',
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -15,7 +17,13 @@ export default class SignIn extends Component {
     }
 
     handleChange = (event) => {
-        this.setState({value: event.target.value});
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+
+        this.setState({
+            [name]: value
+        });
     }
 
     handleSubmit = (event) => {
@@ -25,28 +33,46 @@ export default class SignIn extends Component {
 
     verifyPasswords = () => {
         if (this.state.confirmPassword === this.state.password) {
-            // TODO: Request API
+            const body = {
+                'email': this.state.email,
+                'password': this.state.password
+            };
+
+            axios.post('http://localhost:3000/user/register', body, {
+                headers: {
+                    'Access-Control-Allow-Origin': 'http://localhost:3000',
+                    'Content-Type': 'application/json'
+                },
+            })
+                .then((res) => this.setState({ message: res.data.message }))
+                .catch((err) => this.setState({ message: err }));
         } else {
-            throw new Error("Passwords don't match.");
+            throw new Error("Les mots de passes ne correspondent pas.");
         }
     }
 
     render = () => {
         return (
             <>
-                <h2>LogIn Page</h2>
-                <form>
-                    <label onSubmit={this.handleSubmit}>
+                <h2>SignIn Page</h2>
+                { this.state.message && (
+                        <div>
+                            <p>{ this.state.message }</p>
+                        </div>
+                    )
+                }
+                <form onSubmit={this.handleSubmit}>
+                    <label>
                         Email:
-                        <input type={"email"} placeholder={"your.email@msg.com"} value={this.state.email} onChange={this.handleChange} />
+                        <input type={"email"} name="email" placeholder={"your.email@msg.com"} value={this.state.email} onChange={this.handleChange} />
                     </label>
                     <label>
                         Password:
-                        <input type={"password"} placeholder={"********"} value={this.state.password} onChange={this.handleChange} />
+                        <input type={"password"} name="password" placeholder={"********"} value={this.state.password} onChange={this.handleChange} />
                     </label>
                     <label>
                         Repeat password:
-                        <input type={"password"} placeholder={"********"} value={this.state.confirmPassword} onChange={this.handleChange} />
+                        <input type={"password"} name="confirmPassword" placeholder={"********"} value={this.state.confirmPassword} onChange={this.handleChange} />
                     </label>
                     <input type={"submit"} value={"S'inscrire"} />
                 </form>
