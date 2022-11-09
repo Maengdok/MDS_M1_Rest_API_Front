@@ -11,10 +11,11 @@ import reportWebVitals from './reportWebVitals';
 import {App} from "./App";
 import {Navbar} from "./Components/Navbar";
 import {Error} from "./Pages/Error";
-import {LogIn} from "./Pages/LogIn";
 import {LogOut} from "./Pages/LogOut";
-import {SignIn} from "./Pages/SignIn";
-import {Posts} from "./Pages/Posts";
+import SignIn from "./Pages/SignIn";
+import Posts from "./Pages/Posts";
+import LogIn from "./Pages/LogIn";
+import {Footer} from "./Components/Footer";
 
 const router = createBrowserRouter([
     {
@@ -54,6 +55,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <Navbar />
         <RouterProvider router={router} />
+        <Footer />
     </React.StrictMode>
 );
 

@@ -19,9 +19,6 @@ export const Navbar = () => {
                     </ul>
                 </nav>
             </div>
-            <div>
-                Axel Pion • MDS M1 Web Dev • 2022
-            </div>
         </Router>
     );
 }
