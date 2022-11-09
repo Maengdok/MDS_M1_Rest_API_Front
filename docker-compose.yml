@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  reactjs:
+    container_name: reactjs
+    image: 'node:latest'
+    working_dir: /home/reactjs/app
+    command:
+      - /bin/sh
+      - '-c'
+      - 'npm install && npm start'
+    ports:
+      - '3001:3000'
+    volumes:
+      - '.:/home/reactjs/app'
