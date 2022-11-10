@@ -17,6 +17,7 @@ import {Error} from "./Pages/Error";
 import {LogOut} from "./Pages/LogOut";
 import {Footer} from "./Components/Footer";
 import Posts from "./Pages/Posts";
+import {Forbidden} from "./Pages/Forbidden";
 
 const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
                     {
                         path: "/posts",
                         element: <Posts />,
+                    },
+                    {
+                        path: "/forbidden",
+                        element: <Forbidden />,
                     }
                 ]
             },

@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import axios from "axios";
+import {Navigate} from "react-router-dom";
 
 export default class LogIn extends Component {
     constructor(props) {
@@ -39,18 +40,27 @@ export default class LogIn extends Component {
                     'Content-Type': 'application/json'
                 },
             })
-                .then((res) => window.sessionStorage.setItem("token", res.data.token))
+                .then((res) => {
+                    window.sessionStorage.setItem("token", res.data.token)
+                    this.verifyUserLogIn();
+                })
                 .catch((err) => console.log(err));
         }
 
         event.preventDefault();
     }
 
+    verifyUserLogIn = () => {
+        if (window.sessionStorage.length > 0 ) {
+            return <Navigate to={'/'} />
+        }
+    }
+
     render = () => {
         return (
             <>
                 <h2>LogIn Page</h2>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} method={'POST'}>
                     <label>
                         Email:
                         <input type={"email"} name={"email"} placeholder={"your.email@msg.com"} value={this.state.email} onChange={this.handleChange} />

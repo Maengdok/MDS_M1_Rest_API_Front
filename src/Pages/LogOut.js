@@ -1,7 +1,7 @@
-import {redirect} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 
 export const LogOut = () => {
     window.sessionStorage.clear();
 
-    redirect('/');
+    return <Navigate to={'/'} />
 }

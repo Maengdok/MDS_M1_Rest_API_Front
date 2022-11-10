@@ -33,20 +33,20 @@ export const Navbar = () => {
                         <li>
                             <a href={`/posts`}>Posts</a>
                         </li>
-                        <li>
-                            { window.sessionStorage.length > 0 ?
-                                <>
-                                    <a href={`/logout`}>Se déconnecter</a>
-                                </>
-                            :
-                                <>
+                        { window.sessionStorage.length > 0 ?
+                            <li>
+                                <a href={`/logout`}>Se déconnecter</a>
+                            </li>
+                        :
+                            <>
+                                <li>
                                     <a href={`/login`}>Se connecter</a>
-                                </>
-                            }
-                        </li>
-                        <li>
-                            <a href={`/signin`}>S'inscrire</a>
-                        </li>
+                                </li>
+                                <li>
+                                    <a href={`/signin`}>S'inscrire</a>
+                                </li>
+                            </>
+                        }
                     </ul>
                 </nav>
             </div>
