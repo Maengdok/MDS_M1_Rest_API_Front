@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import {
     createBrowserRouter,
     RouterProvider,
-    Route
 } from "react-router-dom";
 
 import './index.css';
@@ -27,34 +26,13 @@ const router = createBrowserRouter([
             {
                 errorElement: <Error />,
                 children: [
-                    {
-                        path: "/",
-                        element: <App />,
-                    },
-                    {
-                        path: "/login",
-                        element: <LogIn />,
-                    },
-                    {
-                        path: "/logout",
-                        element: <LogOut />,
-                    },
-                    {
-                        path: "/signin",
-                        element: <SignIn />,
-                    },
-                    {
-                        path: "/post",
-                        element: <Post />,
-                    },
-                    {
-                        path: "/posts",
-                        element: <Posts />,
-                    },
-                    {
-                        path: "/forbidden",
-                        element: <Forbidden />,
-                    }
+                    { path: "/", element: <App />, },
+                    { path: "/login", element: <LogIn />, },
+                    { path: "/logout", element: <LogOut />, },
+                    { path: "/signin", element: <SignIn />, },
+                    { path: "/post", element: <Post />, },
+                    { path: "/posts",  element: <Posts />, },
+                    { path: "/forbidden",  element: <Forbidden />, },
                 ]
             },
         ],

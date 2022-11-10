@@ -25,9 +25,9 @@ export default class Posts extends Component {
     }
 
     fetchPosts = () => {
-        axios.get('http://localhost:3000/posts', {
+        axios.get('http://localhost:3001/posts', {
             headers: {
-                'Access-Control-Allow-Origin': 'http://localhost:3000',
+                'Access-Control-Allow-Origin': 'http://localhost:3001',
                 'Content-Type': 'application/json'
             },
         })

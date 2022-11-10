@@ -4,11 +4,11 @@
 ```
 
 ## Launch docker
-```
-docker-compose up
+```bash
+$ docker-compose up
 ```
 
 ## Access to docker
-```
-docker exec -ti container bash
+```bash
+$ docker exec -ti container bash
 ```

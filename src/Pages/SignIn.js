@@ -38,9 +38,9 @@ export default class SignIn extends Component {
                 'password': this.state.password
             };
 
-            axios.post('http://localhost:3000/user/register', body, {
+            axios.post('http://localhost:3001/user/register', body, {
                 headers: {
-                    'Access-Control-Allow-Origin': 'http://localhost:3000',
+                    'Access-Control-Allow-Origin': 'http://localhost:3001',
                     'Content-Type': 'application/json'
                 },
             })
