@@ -31,6 +31,9 @@ export const Navbar = () => {
                                 </>
                             }
                         <li>
+                            <a href={`/posts`}>Posts</a>
+                        </li>
+                        <li>
                             { window.sessionStorage.length > 0 ?
                                 <>
                                     <a href={`/logout`}>Se déconnecter</a>

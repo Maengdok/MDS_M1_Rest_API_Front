@@ -8,14 +8,15 @@ import {
 
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import SignIn from "./Pages/SignIn";
+import Post from "./Pages/Post";
+import LogIn from "./Pages/LogIn";
 import {App} from "./App";
 import {Navbar} from "./Components/Navbar";
 import {Error} from "./Pages/Error";
 import {LogOut} from "./Pages/LogOut";
-import SignIn from "./Pages/SignIn";
-import Post from "./Pages/Post";
-import LogIn from "./Pages/LogIn";
 import {Footer} from "./Components/Footer";
+import Posts from "./Pages/Posts";
 
 const router = createBrowserRouter([
     {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
                         path: "/post",
                         element: <Post />,
                     },
+                    {
+                        path: "/posts",
+                        element: <Posts />,
+                    }
                 ]
             },
         ],
